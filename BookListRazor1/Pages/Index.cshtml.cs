@@ -17,7 +17,13 @@ namespace BookListRazor1.Pages
             _logger = logger;
         }
 
+        //Handlers
         public void OnGet()
+        {
+
+        }
+
+        public void OnPost()
         {
 
         }
