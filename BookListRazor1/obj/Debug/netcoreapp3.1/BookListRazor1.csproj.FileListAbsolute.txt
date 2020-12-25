@@ -373,3 +373,4 @@ D:\PROJECTS\LEARN_ASP_NET_CORE\BookListRazor1\BookListRazor1\bin\Debug\netcoreap
 D:\PROJECTS\LEARN_ASP_NET_CORE\BookListRazor1\BookListRazor1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\PROJECTS\LEARN_ASP_NET_CORE\BookListRazor1\BookListRazor1\obj\Debug\netcoreapp3.1\Razor\Pages\BookList\Index.cshtml.g.cs
 D:\PROJECTS\LEARN_ASP_NET_CORE\BookListRazor1\BookListRazor1\obj\Debug\netcoreapp3.1\Razor\Pages\BookList\Create.cshtml.g.cs
+D:\PROJECTS\LEARN_ASP_NET_CORE\BookListRazor1\BookListRazor1\obj\Debug\netcoreapp3.1\Razor\Pages\BookList\Edit.cshtml.g.cs
