@@ -22,7 +22,7 @@ namespace BookListRazor1.Pages.BookList
 
         public void OnGet()
         {
-            //NewBook obj automatically added to the Getter
+            //NewBook obj automatically added to the Get handler
         }
     }
 }
