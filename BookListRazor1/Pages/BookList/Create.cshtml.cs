@@ -18,11 +18,25 @@ namespace BookListRazor1.Pages.BookList
             _db = db;
         }
 
+        [BindProperty] //Bind the NewBook Object with submitted values to the OnPost handler
         public Book NewBook { get; set; }
 
         public void OnGet()
         {
             //NewBook obj automatically added to the Get handler
+        }
+
+        public async Task<IActionResult> OnPost()
+        {
+            if (ModelState.IsValid)
+            {
+                await _db.Book.AddAsync(NewBook);
+                await _db.SaveChangesAsync();
+                return RedirectToPage("Index");
+            } else
+            {
+                return Page();
+            }
         }
     }
 }
