@@ -14,7 +14,7 @@ namespace BookListRazor1.Models
         [Required] //cannot be null
         public string Name { get; set; }
 
-        public int Author { get; set; }
+        public string Author { get; set; }
 
 
     }
