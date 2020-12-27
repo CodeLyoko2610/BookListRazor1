@@ -4,6 +4,7 @@ $(document).ready(function () {
     loadDataTable()
 })
 
+//The DataTable method (on line 8) comes from datatable package, introduced Index razor page.   
 function loadDataTable() {
     dataTable = $('#DataTable_Load').DataTable({
         "ajax": {
@@ -18,14 +19,14 @@ function loadDataTable() {
             { "data": "isbn", "width": "20%" },
             {
                 "data": "id",
-                "render": function (bookId) {
+                "render": function (res) {
                     return `
                         <div class="text-center">
-                            <a href="/BookList/Edit?id=${bookId}" class="btn btn-success text-white" style="cursor:pointer; width:70px;">
+                            <a href="/BookList/Edit?id=${res}" class="btn btn-success text-white" style="cursor:pointer; width:70px;">
                                 Edit
                             </a>
                             &nbsp;
-                            <a class="btn btn-danger text-white" style="cursor:pointer; width:70px;">
+                            <a onclick=Delete("api/books?id=${res}") class="btn btn-danger text-white" style="cursor:pointer; width:70px;">
                                 Delete
                             </a>
                         </div>
@@ -38,7 +39,31 @@ function loadDataTable() {
             "emptyTable":"No data found."
         },
         "width:":"100%"
-    })
+    })    
+}
 
-    //DataTable methods comes from datatable package, introduced Index razor page.
+function Delete(url) {
+    console.log('Inside function Delete')
+    swal({
+        title: "Are you sure to delete this book?",
+        text: "Once deleted, the book cannot be recovered.",
+        icon: "warning",
+        dangerMode: true,
+        buttons: true,
+    }).then(userRes => {
+        if (userRes) {
+            $.ajax({
+                type: "DELETE",
+                url: url,                
+                success: function (controllerRes) {
+                    if (controllerRes.success) {
+                        toastr.success(controllerRes.message)
+                        dataTable.ajax.reload()
+                    } else {
+                        toastr.error(controllerRes.message)
+                    }
+                }
+            })
+        }
+    })
 }
