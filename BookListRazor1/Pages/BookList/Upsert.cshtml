@@ -1,0 +1,56 @@
+﻿@page
+@model BookListRazor1.Pages.BookList.UpsertModel
+@{
+    ViewData["Title"] = "Upsert";
+}
+
+<br />
+<h2 class="text-info">Update or insert book</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="BookToWork.Name" class="col-3"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="BookToWork.Name" class="form-control" />
+            </div>
+            <span asp-validation-for="BookToWork.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="BookToWork.Author" class="col-3"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="BookToWork.Author" class="form-control" />
+            </div>
+            <span asp-validation-for="BookToWork.Author" class="text-danger"></span>
+
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="BookToWork.ISBN" class="col-3"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="BookToWork.ISBN" class="form-control" />
+            </div>
+            <span asp-validation-for="BookToWork.ISBN" class="text-danger"></span>
+
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <input type="submit" value="Update" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-success form-control">Back to list</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{ 
+    <partial name="_ValidationScriptsPartial" />
+}
