@@ -5,13 +5,18 @@
 }
 
 <br />
-<h2 class="text-info">Update or insert book</h2>
+<h2 class="text-info">@(Model.BookToWork.Id != 0 ? "Update" : "Create" ) book</h2>
 <br />
 
 <div class="border container" style="padding:30px;">
     <form method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
+            @*For Update book*@
+            @if (Model.BookToWork.Id != 0) 
+            { 
+                <input asp-for= "BookToWork.Id" type = "hidden" />            
+            }
             <div class="col-3">
                 <label asp-for="BookToWork.Name" class="col-3"></label>
             </div>
@@ -42,7 +47,12 @@
         </div>
         <div class="form-group row">
             <div class="col-3 offset-3">
-                <input type="submit" value="Update" class="btn btn-primary form-control" />
+                <button type="submit" class="btn btn-primary form-control">
+                    @(Model.BookToWork.Id != 0
+                    ? "Update"
+                    : "Create"
+                    )
+                </button>
             </div>
             <div class="col-3">
                 <a asp-page="Index" class="btn btn-success form-control">Back to list</a>

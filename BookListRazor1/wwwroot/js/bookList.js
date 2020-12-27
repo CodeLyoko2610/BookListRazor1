@@ -22,7 +22,7 @@ function loadDataTable() {
                 "render": function (bookIdFromResObj) {
                     return `
                         <div class="text-center">
-                            <a href="/BookList/Edit?id=${bookIdFromResObj}" class="btn btn-success text-white" style="cursor:pointer; width:70px;">
+                            <a href="/BookList/Upsert?id=${bookIdFromResObj}" class="btn btn-success text-white" style="cursor:pointer; width:70px;">
                                 Edit
                             </a>
                             &nbsp;
