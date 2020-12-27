@@ -6,27 +6,27 @@ $(document).ready(function () {
 
 //The DataTable method (on line 8) comes from datatable package, introduced Index razor page.   
 function loadDataTable() {
-    dataTable = $('#DataTable_Load').DataTable({
+    dataTable = $('#DT_Load').DataTable({
         "ajax": {
             "url": "/api/books",
             "type": "GET",
             "datatype": "json",
         },
-        //name of data follows camel case rule, even thought the actual name might be capitalized
+        //name of the data from the response follows camel case rule, even though the actual name might be capitalized
         "columns": [
             { "data": "name", "width": "20%" },
             { "data": "author", "width": "20%" },
             { "data": "isbn", "width": "20%" },
             {
                 "data": "id",
-                "render": function (res) {
+                "render": function (bookIdFromResObj) {
                     return `
                         <div class="text-center">
-                            <a href="/BookList/Edit?id=${res}" class="btn btn-success text-white" style="cursor:pointer; width:70px;">
+                            <a href="/BookList/Edit?id=${bookIdFromResObj}" class="btn btn-success text-white" style="cursor:pointer; width:70px;">
                                 Edit
                             </a>
                             &nbsp;
-                            <a onclick=Delete("api/books?id=${res}") class="btn btn-danger text-white" style="cursor:pointer; width:70px;">
+                            <a onclick=Delete("api/books?id=${bookIdFromResObj}") class="btn btn-danger text-white" style="cursor:pointer; width:70px;">
                                 Delete
                             </a>
                         </div>
@@ -43,7 +43,6 @@ function loadDataTable() {
 }
 
 function Delete(url) {
-    console.log('Inside function Delete')
     swal({
         title: "Are you sure to delete this book?",
         text: "Once deleted, the book cannot be recovered.",

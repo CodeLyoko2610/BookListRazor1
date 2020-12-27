@@ -23,7 +23,6 @@ namespace BookListRazor1.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            //Where is the id that be returned?
             return Json(new { data = await _db.Book.ToListAsync() });
         }
 
